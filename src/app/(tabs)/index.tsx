@@ -1,14 +1,34 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
+import { useGetArticleQuery } from '@/services/articles/articleApi';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
+import Articles from '@/components/Articles';
 
 export default function ArticleScreen() {
+  const { data, isLoading, isError, error } = useGetArticleQuery('articles');
+
+  if (isLoading) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    ); 
+  }
+
+  if (isError) {
+    return (
+      <View>
+        <Text>Error: {error.toString()}</Text>
+      </View>
+    ); 
+  }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Статьи</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/tabs/article.tsx" />
+      <ScrollView>
+        <Articles data={data.articles} />
+      </ScrollView>
     </View>
   );
 }
