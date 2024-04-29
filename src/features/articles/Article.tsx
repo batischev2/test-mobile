@@ -18,7 +18,6 @@ export function Article() {
   const [incrementAmount, setIncrementAmount] = useState('2');
 
   const count = useAppSelector(selectCount);
-  const status = useAppSelector((state) => state.article.status);
   const dispatch = useAppDispatch();
 
   return (
