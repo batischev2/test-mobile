@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 
 import { store } from '@/app/store';
 
-import { useColorScheme } from '@/components/useColorScheme';
+import { useColorScheme } from '@/app/hooks';
 
 export { ErrorBoundary } from 'expo-router';
 

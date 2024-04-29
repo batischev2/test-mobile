@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 import { View } from './Themed';
@@ -12,7 +11,7 @@ export default function Articles({ data }: { data: Array<Article> }) {
     <View>
       {data.map((item) => {
         return (
-          <ArticleItem key={item.id} title={item.title} description={item.description} />
+          <ArticleItem key={item.id} title={item.title} description={item.description} type={'file'} />
         )
       })}
     </View>

@@ -2,7 +2,7 @@ import { StyleSheet, ScrollView } from 'react-native';
 import { useGetArticleQuery } from '@/services/articles/articleApi';
 
 import { Text, View } from '@/components/Themed';
-import Articles from '@/components/Articles';
+import Audios from '@/components/Audios';
 
 export default function ArticleScreen() {
   const { data, isLoading, isError, error } = useGetArticleQuery('audio');
@@ -27,7 +27,7 @@ export default function ArticleScreen() {
     <View style={styles.container}>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <ScrollView>
-        <Articles data={data.articles} />
+        <Audios data={data.audio} />
       </ScrollView>
     </View>
   );

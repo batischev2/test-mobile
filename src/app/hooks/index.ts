@@ -13,3 +13,9 @@ export const useViewportUnits = () => {
 
   return {vh, vw};
 };
+
+export const useClientOnlyValue = <S, C>(server: S, client: C): S | C => {
+  return client;
+}
+
+export { useColorScheme } from 'react-native';

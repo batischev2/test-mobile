@@ -1,17 +1,9 @@
 import React from 'react';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
 
 import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/components/useColorScheme';
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
-
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
+import { useColorScheme, useClientOnlyValue } from '@/app/hooks';
+import { TabBarIcon } from '@/components/TabBarIcon';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -26,14 +18,14 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Статьи',
-          tabBarIcon: ({ color }) => <TabBarIcon name="file" color={color} />
+          tabBarIcon: ({ color }) => <TabBarIcon size={28} name="file" color={color} />
         }}
       />
       <Tabs.Screen
         name="audio"
         options={{
           title: 'Аудио',
-          tabBarIcon: ({ color }) => <TabBarIcon name="music" color={color} />
+          tabBarIcon: ({ color }) => <TabBarIcon size={28} name="music" color={color} />
         }}
       />
     </Tabs>
