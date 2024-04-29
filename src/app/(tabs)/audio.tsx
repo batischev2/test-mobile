@@ -4,7 +4,7 @@ import { useGetArticleQuery } from '@/services/articles/articleApi';
 import { Text, View } from '@/components/Themed';
 import Audios from '@/components/Audios';
 
-export default function ArticleScreen() {
+export default function AudioScreen() {
   const { data, isLoading, isError, error } = useGetArticleQuery('audio');
 
   if (isLoading) {

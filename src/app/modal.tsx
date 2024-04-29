@@ -2,13 +2,23 @@ import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet } from 'react-native';
 
 import { Text, View } from '@/components/Themed';
+import { useLocalSearchParams } from 'expo-router';
 
-export default function ModalScreen() {
+interface Props {
+  children: JSX.Element[] | JSX.Element
+}
+
+export default function ModalScreen(props: Props) {
+  const params = useLocalSearchParams();
+
+  console.log(params)
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Modal</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
+      <View>{props.children}</View>
     </View>
   );
 }

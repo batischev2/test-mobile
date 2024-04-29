@@ -11,7 +11,7 @@ export default function Audios({ data }: { data: Array<Audio> }) {
     <View>
       {data.map((item) => {
         return (
-          <ArticleItem key={item.id} title={item.name} description={item.title} type={'music'} />
+          <ArticleItem key={item.id} description={item.title} type={'music'} {...item} />
         )
       })}
     </View>
